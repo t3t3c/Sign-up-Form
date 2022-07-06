@@ -1,8 +1,22 @@
+@font-face {
+  /* font-family name does not need to be the same as filename */
+  font-family: norse-bold;
+  src: url("fonts/Norse-Bold.otf");
+}
+
 :root {
   /* custom properties */
   --buttons-color: #596d48;
   --borders-color: #e5e7eb;
-  --background-color: #888;
+  --background-color: #e5e7eb;
+  /* rem = 10 px */
+  font-size: 62.5%;
+  /* 10/16 where 16 is default rem size */
+}
+
+body {
+  /* so default font size is still 16 */
+  font-size: 1.6rem;
 }
 
 * {
@@ -19,12 +33,13 @@ div.content {
   width: 100vw;
 }
 
+/* left side */
+
 div.background {
   background-image: url("images/background-halie-west.jpg");
   background-size: cover;
   /* fallback value */
   background-color: #596d48;
-
   flex: 1;
 }
 
@@ -32,7 +47,6 @@ div.logo {
   margin-top: 15rem;
   width: auto;
   height: 10rem;
-
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
@@ -45,14 +59,25 @@ div.logo img {
 }
 
 div.logo p {
+  /* serif is a fallback */
+  font-family: "norse-bold", serif;
   font-size: 6rem;
-}
-
-p {
   color: white;
 }
 
-div.form {
+/* right side */
+
+div.right {
   background-color: var(--background-color);
   flex: 2;
+}
+
+div.intro-text p {
+  padding: 30px;
+  font-size: large;
+}
+
+div.right fieldset {
+  background-color: #fff;
+  padding: 30px;
 }

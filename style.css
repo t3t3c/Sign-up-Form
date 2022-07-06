@@ -1,3 +1,8 @@
+/* use import to import fonts from the web - ex. google fonts */
+/* source: https://fonts.google.com/specimen/Lato#standard-styles */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,400&display=swap");
+
+/* use font-face to link downloaded font */
 @font-face {
   /* font-family name does not need to be the same as filename */
   font-family: norse-bold;
@@ -7,8 +12,13 @@
 :root {
   /* custom properties */
   --buttons-color: #596d48;
-  --borders-color: #e5e7eb;
-  --background-color: #e5e7eb;
+  --hover-buttons: #415034;
+  --border-color: #e5e7eb;
+  --border-required-color: #999;
+  --background-color: #f9fafb;
+  --shadow-color: #bbb;
+  --shadow-specs: 5px 5px 5px var(--shadow-color);
+
   /* rem = 10 px */
   font-size: 62.5%;
   /* 10/16 where 16 is default rem size */
@@ -17,6 +27,7 @@
 body {
   /* so default font size is still 16 */
   font-size: 1.6rem;
+  font-family: "Lato", serif;
 }
 
 * {
@@ -24,7 +35,7 @@ body {
   margin: 0;
   padding: 0;
   /* outline for easier arrangement */
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
 }
 
 div.content {
@@ -43,25 +54,24 @@ div.background {
   flex: 1;
 }
 
-div.logo {
-  margin-top: 15rem;
+div.background div.logo {
+  margin-top: 20%;
   width: auto;
-  height: 10rem;
+  height: 15%;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
 }
 
 div.logo img {
-  height: 8rem;
+  height: 10rem;
 }
 
 div.logo p {
   /* serif is a fallback */
   font-family: "norse-bold", serif;
-  font-size: 6rem;
+  font-size: 500%;
   color: white;
 }
 
@@ -74,10 +84,82 @@ div.right {
 
 div.intro-text p {
   padding: 30px;
-  font-size: large;
+  font-size: 3rem;
+  font-weight: 400;
 }
 
 div.right fieldset {
   background-color: #fff;
   padding: 30px;
+  border: none;
+  box-shadow: var(--shadow-specs);
 }
+
+div.right button {
+  display: block;
+
+  color: #fff;
+  background-color: var(--buttons-color);
+
+  border: none;
+  border-radius: 10px;
+  margin: 40px;
+  padding: 10px 40px;
+  /* offset-x | offset-y | blur-radius | color */
+  box-shadow: var(--shadow-specs);
+  font-weight: 700;
+}
+
+div.right button:hover {
+  background-color: var(--hover-buttons);
+  cursor: pointer;
+}
+
+div.right button:active {
+  outline: 2px solid var(--border-color);
+}
+
+div.right a {
+  color: #596d48;
+  text-decoration: none;
+}
+
+/* FORM STYLING */
+
+/* form layout */
+
+label {
+  display: block;
+  font-size: 1.2rem;
+}
+
+fieldset.form-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* input */
+
+input {
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  height: 2rem;
+}
+
+input:required {
+  border: 1px solid var(--border-required-color);
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid blue;
+  box-shadow: 1px 1px 2px var(--shadow-color);
+}
+
+/* shows if invalid only on focus */
+input:invalid:focus {
+  outline: none;
+  border: 1px solid red;
+}
+
+/* label */

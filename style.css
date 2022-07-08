@@ -9,6 +9,22 @@
   src: url("fonts/Norse-Bold.otf");
 }
 
+* {
+  /* minimalistic CSS reset */
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  /* outline for easier arrangement */
+  /* outline: 1px solid red; */
+}
+
+/* it is considered good practice to put box-sizing: inherit on universal selector * */
+/* and to put box-sizing: border-box in html */
+/* this way when you import sth like an image with the header that has a box-sizing: content-box; the header that was dependent on it will also have content-box */
+html {
+  box-sizing: border-box;
+}
+
 :root {
   /* custom properties */
   --buttons-color: #596d48;
@@ -30,14 +46,6 @@ body {
   font-family: "Lato", serif;
 }
 
-* {
-  /* minimalistic CSS reset */
-  margin: 0;
-  padding: 0;
-  /* outline for easier arrangement */
-  /* outline: 1px solid red; */
-}
-
 div.content {
   display: flex;
   height: 100vh;
@@ -51,7 +59,7 @@ div.background {
   background-size: cover;
   /* fallback value */
   background-color: #596d48;
-  flex: 1;
+  flex: 2;
 }
 
 div.background div.logo {
@@ -78,21 +86,15 @@ div.logo p {
 /* right side */
 
 div.right {
+  padding-top: 60px;
   background-color: var(--background-color);
-  flex: 2;
+  flex: 3;
 }
 
 div.intro-text p {
   padding: 30px;
   font-size: 3rem;
-  font-weight: 400;
-}
-
-div.right fieldset {
-  background-color: #fff;
-  padding: 30px;
-  border: none;
-  box-shadow: var(--shadow-specs);
+  font-weight: 500;
 }
 
 div.right button {
@@ -103,7 +105,7 @@ div.right button {
 
   border: none;
   border-radius: 10px;
-  margin: 40px;
+  margin: 30px;
   padding: 10px 40px;
   /* offset-x | offset-y | blur-radius | color */
   box-shadow: var(--shadow-specs);
@@ -122,20 +124,46 @@ div.right button:active {
 div.right a {
   color: #596d48;
   text-decoration: none;
+  font-weight: 600;
+}
+
+div.right p {
+  margin-left: 30px;
 }
 
 /* FORM STYLING */
 
 /* form layout */
 
-label {
-  display: block;
-  font-size: 1.2rem;
+div.right .form-container {
+  background-color: #fff;
+  padding: 30px;
+  border: none;
+  box-shadow: var(--shadow-specs);
+
 }
 
-fieldset.form-container {
+.form-container div {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  width: 40%;
+}
+
+.form-container p {
+  font-size: 2rem;
+}
+
+label {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+form {
+  display: flex;
+  flex-flow: row wrap;
+  margin-right: 30%;
+  gap: 30px;
+  padding: 30px;
 }
 
 /* input */
@@ -143,7 +171,7 @@ fieldset.form-container {
 input {
   border: 1px solid var(--border-color);
   border-radius: 4px;
-  height: 2rem;
+  height: 3rem;
 }
 
 input:required {
